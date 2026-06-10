@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Fitch Hill Design</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #1D1F2A; --cream: #F1F0E2; --white: #FFFFFF;
+      --grey-dark: #33393D; --grey-mid: #7B8287; --tan: #D6CFBE;
+      --font-headline: 'Cormorant Garamond', serif;
+      --font-body: 'Jost', sans-serif;
+      --font-manifesto: 'Libre Baskerville', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-weight: 300; color: var(--navy); background: var(--white); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); border-bottom: 1px solid rgba(241,240,226,0.1); }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; position: relative; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-family: var(--font-body); font-weight: 400; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cream); transition: opacity 0.3s; }
+    .nav-links a:hover { opacity: 0.7; }
+    .nav-logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-cta a { font-family: var(--font-body); font-weight: 400; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cream); border: 1px solid var(--cream); padding: 10px 24px; transition: all 0.3s; }
+    .nav-cta a:hover { background: var(--cream); color: var(--navy); }
+    .nav-toggle { display: none; cursor: pointer; }
+    .nav-toggle span { display: block; width: 24px; height: 1px; background: var(--cream); margin: 6px 0; }
+
+    /* THANK YOU HERO */
+    .ty-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ty-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/thankyou-feature.jpg') center 45% / cover no-repeat;
+    }
+    .ty-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(29,31,42,0.52);
+    }
+    .ty-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 120px 6vw 80px;
+      max-width: 700px;
+    }
+
+    .ty-monogram { margin-bottom: 40px; }
+    .ty-monogram img { height: 36px; width: auto; margin: 0 auto; opacity: 0.8; }
+
+    .ty-hero-content h1 {
+      font-family: var(--font-headline);
+      font-weight: 300;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.15;
+      color: var(--cream);
+      text-transform: lowercase;
+      letter-spacing: 4px;
+      margin-bottom: 24px;
+    }
+
+    .ty-hero-content .ty-subhead {
+      font-family: var(--font-manifesto);
+      font-style: italic;
+      font-size: clamp(17px, 2vw, 22px);
+      color: var(--cream);
+      line-height: 1.7;
+      opacity: 0.9;
+      margin-bottom: 32px;
+    }
+
+    .ty-hero-content .ty-body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 15px;
+      color: rgba(241,240,226,0.8);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .btn-outline-cream {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 14px 40px;
+      border: 1px solid var(--cream);
+      color: var(--cream);
+      transition: all 0.3s;
+    }
+    .btn-outline-cream:hover { background: var(--cream); color: var(--navy); }
+
+    .site-footer { background: var(--navy); padding: 60px 6vw 40px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+    .footer-brand .footer-logo img { height: 32px; width: auto; margin-bottom: 20px; }
+    .footer-brand .footer-tagline { font-family: var(--font-manifesto); font-style: italic; font-size: 15px; color: var(--cream); line-height: 1.6; letter-spacing: 1px; }
+    .footer-brand .footer-location { font-family: var(--font-body); font-weight: 300; font-size: 13px; color: rgba(241,240,226,0.6); margin-top: 12px; }
+    .footer-col h4 { font-family: var(--font-body); font-weight: 400; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cream); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-family: var(--font-body); font-weight: 300; font-size: 13px; color: rgba(241,240,226,0.7); text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(241,240,226,0.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-contact { display: flex; align-items: center; gap: 32px; }
+    .footer-contact a { font-family: var(--font-body); font-weight: 300; font-size: 14px; color: var(--cream); transition: opacity 0.3s; }
+    .footer-contact a:hover { opacity: 0.7; }
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { font-family: var(--font-body); font-weight: 300; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(241,240,226,0.6); transition: color 0.3s; }
+    .footer-social a:hover { color: var(--cream); }
+
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-bottom { justify-content: center; } .footer-contact { flex-direction: column; gap: 12px; } }
+    @media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .nav-toggle { display: block; } .nav-container { padding: 16px 24px; } .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--navy); padding: 32px 24px; gap: 24px; z-index: 99; } }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XN5VSTRYN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1XN5VSTRYN');
+  </script>
+  <!-- End Google Analytics 4 -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K53ZGHW4');</script>
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K53ZGHW4"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+      </ul>
+      <div class="nav-logo"><a href="/"><img src="images/fhd-full-logo-cream.png" alt="Fitch Hill Design"></a></div>
+      <div class="nav-cta" id="navCta"><a href="/contact/">Contact Us</a></div>
+      <div class="nav-toggle" id="navToggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <section class="ty-hero">
+    <div class="ty-hero-bg"></div>
+    <div class="ty-hero-content">
+      <div class="ty-monogram">
+        <img src="images/fhd-logo-cream.png" alt="FHD">
+      </div>
+      <h1>thank you for reaching out</h1>
+      <p class="ty-subhead">We've received your inquiry and will be in touch within two business days.</p>
+      <p class="ty-body">In the meantime, take a look at some of our recent work.</p>
+      <a href="/portfolio/" class="btn-outline-cream">View Our Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="images/fhd-logo-cream.png" alt="FHD"></div>
+        <p class="footer-tagline">homes designed<br>to support how<br>you live</p>
+        <p class="footer-location">Based in Phoenix, Arizona</p>
+      </div>
+      <div class="footer-col">
+        <h4>Work With Us</h4>
+        <ul><li><a href="/portfolio/">Our Work</a></li><li><a href="/services/">Services</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact Us</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>About Us</h4>
+        <ul><li><a href="/about/">Who We Are</a></li><li><a href="/about/#values">Company Values</a></li><li><a href="/#testimonials">Client Testimonials</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-contact"><a href="mailto:info@fitchhill.com">info@fitchhill.com</a><a href="tel:+14807021079">480.702.1079</a></div>
+      <div class="footer-social"><a href="https://www.instagram.com/fitchhilldesign/" target="_blank" rel="noopener">Instagram</a><a href="https://www.pinterest.com/fitch_hill_design/" target="_blank" rel="noopener">Pinterest</a><a href="#" target="_blank" rel="noopener">TikTok</a></div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navCta').classList.toggle('open'); }
+  </script>
+</body>
+</html>
