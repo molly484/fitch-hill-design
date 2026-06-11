@@ -297,7 +297,9 @@
       <h2>tell us about your project</h2>
       <div class="section-rule left"></div>
 
-      <form id="contactForm" action="/contact/thank-you/" method="GET" onsubmit="handleSubmit(event)">
+      <form id="contactForm" action="https://formspree.io/f/xjgdavrb" method="POST">
+        <input type="hidden" name="_next" value="https://fitchhilldesign.com/contact/thank-you/">
+        <input type="hidden" name="_subject" value="New Inquiry — Fitch Hill Design">
 
         <div class="form-row">
           <div class="form-group">
@@ -419,10 +421,6 @@
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navCta').classList.toggle('open'); }
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      window.location.href = '/contact/thank-you/';
-    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
