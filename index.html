@@ -1033,6 +1033,8 @@
       .luxe-feature { flex-direction: column; }
       .luxe-feature-content { width: 100%; }
       .luxe-feature-spacer { display: none; }
+      .luxe-feature::after { content: ''; position: absolute; inset: 0; background: rgba(29,31,42,0.5); pointer-events: none; }
+      .luxe-feature-content { z-index: 2; }
       .testimonials { grid-template-columns: 1fr; }
       .testimonial-image-left, .testimonial-image-right { min-height: 300px; }
       .company-values { grid-template-columns: 1fr; }
@@ -1049,6 +1051,7 @@
       .nav-toggle { display: block; }
       .nav-container { padding: 16px 24px; }
       .hero-content { padding: 0 24px; }
+      .hero-image { background-position: center 30%; }
       .values-grid { grid-template-columns: 1fr; }
       .cta-strip { flex-direction: column; gap: 24px; text-align: center; }
       .final-cta-overlay { margin: 20px; padding: 36px 32px; }
@@ -1068,13 +1071,7 @@
       }
 
       .nav-cta.open {
-        display: block;
-        position: fixed;
-        top: auto;
-        left: 24px;
-        right: 24px;
-        z-index: 99;
-        text-align: center;
+        display: none;
       }
     }
 
