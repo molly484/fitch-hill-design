@@ -297,9 +297,10 @@
       <h2>tell us about your project</h2>
       <div class="section-rule left"></div>
 
-      <form id="contactForm" action="https://formspree.io/f/xjgdavrb" method="POST">
-        <input type="hidden" name="_next" value="https://fitchhilldesign.com/contact/thank-you/">
-        <input type="hidden" name="_subject" value="New Inquiry — Fitch Hill Design">
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="6d4ce349-3eab-43be-9a94-2cc3dc773801">
+        <input type="hidden" name="subject" value="New Inquiry — Fitch Hill Design">
+        <input type="hidden" name="redirect" value="https://fitchhilldesign.com/contact/thank-you/">
 
         <div class="form-row">
           <div class="form-group">
@@ -420,7 +421,6 @@
 
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navCta').classList.toggle('open'); }
-
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
