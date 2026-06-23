@@ -64,15 +64,17 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 18px 40px;
       position: relative;
+      gap: 24px;
     }
 
     .nav-links {
       display: flex;
       gap: 36px;
       list-style: none;
+      flex: 1;
+      min-width: 0;
     }
 
     .nav-links a {
@@ -88,15 +90,21 @@
     .nav-links a:hover { opacity: 0.7; }
 
     .nav-logo {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
     }
 
     .nav-logo img {
       height: 40px;
       width: auto;
+    }
+
+    .nav-cta {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .nav-cta a {
@@ -1028,33 +1036,60 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+      
+      .hero { height: 480px; min-height: 0; }
+      .hero-image { background-position: center 70%; }
+      .nav-container { padding: 16px 24px; gap: 12px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+      .nav-logo img { height: 32px; }
+      .nav-cta a { padding: 8px 16px; font-size: 10px; letter-spacing: 1.5px; }
+
       .our-belief, .about-us, .our-work, .faq-preview { grid-template-columns: 1fr; }
-      .our-belief-image, .about-us-image, .our-work-image, .faq-image { min-height: 350px; }
-      .luxe-feature { flex-direction: column; }
+      .our-work-content { order: -1; }
+      .our-belief-image, .about-us-image, .our-work-image, .faq-image { height: 420px; min-height: 420px; }
+      .our-belief-image { background-position: center 25%; }
+      .faq-image { background-position: center 40%; }
+      .luxe-feature { flex-direction: column; min-height: 0; }
       .luxe-feature-content { width: 100%; }
+      .luxe-feature-content::before { display: none; }
       .luxe-feature-spacer { display: none; }
-      .luxe-feature::after { content: ''; position: absolute; inset: 0; background: rgba(29,31,42,0.5); pointer-events: none; }
-      .luxe-feature-content { z-index: 2; }
+      .luxe-feature::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(29,31,42,0.72);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .luxe-feature-content { position: relative; z-index: 2; padding: 64px 40px; }
+      .social-proof p { font-size: 13px; line-height: 2; }
+      .social-proof .proof-item { display: inline-block; white-space: nowrap; }
+      .social-proof span { margin: 0 12px; }
       .testimonials { grid-template-columns: 1fr; }
-      .testimonial-image-left, .testimonial-image-right { min-height: 300px; }
+      .testimonial-image-left, .testimonial-image-right { height: 380px; min-height: 380px; }
+      .testimonial-image-left { background-position: center 40%; }
       .company-values { grid-template-columns: 1fr; }
       .company-values-image { min-height: 350px; }
       .services-grid { grid-template-columns: 1fr; gap: 32px; }
       .hp-portfolio-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-brand .footer-logo img { margin-left: auto !important; margin-right: auto !important; }
       .footer-bottom { justify-content: center; }
       .footer-contact { flex-direction: column; gap: 12px; }
     }
 
     @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
-      .nav-toggle { display: block; }
+      .hero { height: 60vh; min-height: 0; }
+      .hero-image { background-position: center 65%; }
       .nav-container { padding: 16px 24px; }
       .hero-content { padding: 0 24px; }
-      .hero-image { background-position: center 30%; }
       .values-grid { grid-template-columns: 1fr; }
       .cta-strip { flex-direction: column; gap: 24px; text-align: center; }
       .final-cta-overlay { margin: 20px; padding: 36px 32px; }
+      .testimonial-image-left { aspect-ratio: 1/1; min-height: 0; background-position: center 40%; }
+      .testimonial-image-right { aspect-ratio: 1/1; min-height: 0; }
 
       /* Mobile nav overlay */
       .nav-links.open {
@@ -1232,7 +1267,7 @@
 
   <!-- SOCIAL PROOF STRIP -->
   <section class="social-proof">
-    <p>Luxe Interiors + Design Gold List <span>&middot;</span> 20+ Years of Design Experience <span>&middot;</span> Based in Phoenix, Arizona</p>
+    <p><span class="proof-item">Luxe Interiors + Design Gold List</span> <span>&middot;</span> <span class="proof-item">20+ Years of Design Experience</span> <span>&middot;</span> <span class="proof-item">Based in Phoenix, Arizona</span></p>
   </section>
 
   <!-- LUXE FEATURE -->
