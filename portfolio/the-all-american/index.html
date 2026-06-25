@@ -206,6 +206,13 @@
 
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navCta').classList.toggle('open'); }
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('navToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleNav);
+        toggleBtn.addEventListener('touchend', function(e) { e.preventDefault(); toggleNav(); });
+      }
+    });
 
     const images = [
       { src: '../../images/the-all-american/taa-04-bath1-b.jpg', alt: "Boys bath, wide view with penny tile floor and dark subway shower", portrait: false },

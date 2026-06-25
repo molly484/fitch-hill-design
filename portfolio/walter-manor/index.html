@@ -399,6 +399,13 @@
 
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navCta').classList.toggle('open'); }
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('navToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleNav);
+        toggleBtn.addEventListener('touchend', function(e) { e.preventDefault(); toggleNav(); });
+      }
+    });
 
     const images = [
       { src: '../../images/walter-manor/wm-01-hero.jpg', alt: 'Lower level living room' },

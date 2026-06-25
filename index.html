@@ -1394,6 +1394,28 @@
       document.getElementById('navCta').classList.toggle('open');
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('navToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleNav);
+        toggleBtn.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          toggleNav();
+        });
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('navToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleNav);
+        toggleBtn.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          toggleNav();
+        });
+      }
+    });
+
     // FAQ accordion
     function toggleFaq(el) {
       const item = el.parentElement;

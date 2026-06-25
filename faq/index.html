@@ -665,6 +665,17 @@
       document.getElementById('navCta').classList.toggle('open');
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('navToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleNav);
+        toggleBtn.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          toggleNav();
+        });
+      }
+    });
+
     function toggleFaq(el) {
       const item = el.closest('.faq-item');
       const isOpen = item.classList.contains('open');
