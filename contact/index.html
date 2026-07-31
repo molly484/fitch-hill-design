@@ -206,7 +206,7 @@
 
       .steps { grid-template-columns: 1fr; gap: 32px; }
       .form-section { grid-template-columns: 1fr; }
-      .form-image { height: 560px; min-height: 560px; background-position: center 40%; }
+      .form-image { min-height: 360px; }
       .form-panel { padding: 56px 40px; }
       
       .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-brand .footer-logo img { margin-left: auto !important; margin-right: auto !important; }
@@ -221,7 +221,7 @@
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .contact-details { padding: 56px 24px; }
       .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--navy); padding: 32px 24px; gap: 24px; z-index: 99; }
-      .nav-cta.open { display: none; }
+      .nav-cta.open { display: block; position: fixed; left: 24px; right: 24px; z-index: 99; text-align: center; }
     }
 
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -415,7 +415,7 @@
       </div>
       <div class="footer-col">
         <h4>Work With Us</h4>
-        <ul><li><a href="/portfolio/">Our Work</a></li><li><a href="/services/">Services</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact Us</a></li></ul>
+        <ul><li><a href="/portfolio/">Our Work</a></li><li><a href="/services/">Services</a></li><li><a href="/architects-builders/">Architects + Builders</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact Us</a></li></ul>
       </div>
       <div class="footer-col">
         <h4>About Us</h4>
@@ -430,13 +430,6 @@
 
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navCta').classList.toggle('open'); }
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleBtn = document.getElementById('navToggle');
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', toggleNav);
-        toggleBtn.addEventListener('touchend', function(e) { e.preventDefault(); toggleNav(); });
-      }
-    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

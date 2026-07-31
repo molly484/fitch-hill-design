@@ -699,8 +699,8 @@
 
       .story-image { height: 560px; min-height: 560px; order: 1; background-position: center 25%; }
       .story-content { order: 0; }
-      .origins-image { height: 600px; min-height: 600px; background-position: center 30%; }
-      .how-molly-image { height: 680px; min-height: 680px; background-position: center 78%; }
+      .origins-image { height: 460px; min-height: 460px; background-position: center 35%; }
+      .how-molly-image { height: 600px; min-height: 600px; background-position: center 20%; }
 
       .story-content,
       .origins-content,
@@ -741,7 +741,11 @@
       }
 
       .nav-cta.open {
-        display: none;
+        display: block;
+        position: fixed;
+        left: 24px; right: 24px;
+        z-index: 99;
+        text-align: center;
       }
     }
 
@@ -942,6 +946,7 @@
         <ul>
           <li><a href="/portfolio/">Our Work</a></li>
           <li><a href="/services/">Services</a></li>
+          <li><a href="/architects-builders/">Architects + Builders</a></li>
           <li><a href="/faq/">FAQ</a></li>
           <li><a href="/contact/">Contact Us</a></li>
         </ul>
@@ -973,17 +978,6 @@
       document.getElementById('navLinks').classList.toggle('open');
       document.getElementById('navCta').classList.toggle('open');
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleBtn = document.getElementById('navToggle');
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', toggleNav);
-        toggleBtn.addEventListener('touchend', function(e) {
-          e.preventDefault();
-          toggleNav();
-        });
-      }
-    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

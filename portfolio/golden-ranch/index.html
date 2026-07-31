@@ -95,7 +95,7 @@
       .nav-logo img { height: 32px; }
       .nav-cta a { padding: 8px 16px; font-size: 10px; letter-spacing: 1.5px; }
  .project-intro { grid-template-columns: 1fr; gap: 40px; } .intro-details { padding-top: 0; flex-direction: row; flex-wrap: wrap; } .detail-block { flex: 1; min-width: 160px; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-brand .footer-logo img { margin-left: auto !important; margin-right: auto !important; } .footer-bottom { justify-content: center; } .footer-contact { flex-direction: column; gap: 12px; } }
-    @media (max-width: 768px) { .nav-container { padding: 16px 24px; } .project-intro { padding: 48px 24px; } .gallery-section { padding: 40px 24px; } .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; } .lightbox-prev { left: 8px; } .lightbox-next { right: 8px; } .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--navy); padding: 32px 24px; gap: 24px; z-index: 99; } .nav-cta.open { display: none; } }
+    @media (max-width: 768px) { .nav-container { padding: 16px 24px; } .project-intro { padding: 48px 24px; } .gallery-section { padding: 40px 24px; } .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; } .lightbox-prev { left: 8px; } .lightbox-next { right: 8px; } .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--navy); padding: 32px 24px; gap: 24px; z-index: 99; } .nav-cta.open { display: block; position: fixed; left: 24px; right: 24px; z-index: 99; text-align: center; } }
   </style>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XN5VSTRYN"></script>
@@ -197,7 +197,7 @@
       </div>
       <div class="footer-col">
         <h4>Work With Us</h4>
-        <ul><li><a href="/portfolio/">Our Work</a></li><li><a href="/services/">Services</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact Us</a></li></ul>
+        <ul><li><a href="/portfolio/">Our Work</a></li><li><a href="/services/">Services</a></li><li><a href="/architects-builders/">Architects + Builders</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact Us</a></li></ul>
       </div>
       <div class="footer-col">
         <h4>About Us</h4>
@@ -212,13 +212,6 @@
 
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navCta').classList.toggle('open'); }
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleBtn = document.getElementById('navToggle');
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', toggleNav);
-        toggleBtn.addEventListener('touchend', function(e) { e.preventDefault(); toggleNav(); });
-      }
-    });
     const images = [
       { src: '../../images/golden-ranch/gr-01-kitchen-wide.jpg', alt: 'Kitchen wide view' },
       { src: '../../images/golden-ranch/gr-02-kitchen-island-wide.jpg', alt: 'Kitchen island wide view' },
